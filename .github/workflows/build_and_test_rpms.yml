@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Build RPMs
         run: |
-          docker run -v $(pwd):/$REPO_NAME \
+          docker run -v $(pwd):/${GITHUB_REPOSITORY##*/} \
                      -e REPO_NAME=${GITHUB_REPOSITORY##*/} \
                      -e GET_FILES=True \
                      --cap-add=SYS_ADMIN \
