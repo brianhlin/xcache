@@ -19,8 +19,6 @@ jobs:
           docker run -v $(pwd):/${GITHUB_REPOSITORY##*/} \
                      -e REPO_NAME=${GITHUB_REPOSITORY##*/} \
                      -e GET_FILES=True \
-                     --cap-add=SYS_ADMIN \
-                     --tmpfs /var/lib/mock/epel-7-x86_64-bootstrap/root/proc \
                      --privileged \
                      opensciencegrid/osg-build \
                      build-from-github
