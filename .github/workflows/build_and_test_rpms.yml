@@ -21,5 +21,6 @@ jobs:
                      -e GET_FILES=True \
                      --cap-add=SYS_ADMIN \
                      --tmpfs /var/lib/mock/epel-7-x86_64-bootstrap/root/proc \
+                     --privileged \
                      opensciencegrid/osg-build \
                      build-from-github
