@@ -22,3 +22,5 @@ jobs:
                      --privileged \
                      opensciencegrid/osg-build \
                      build-from-github
+
+      - run: ls -lR
