@@ -14,9 +14,12 @@ jobs:
           echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null &&
             sudo service docker restart
 
+      -run: mkdir _build_results
+
       - name: Build RPMs
         run: |
           docker run -v $(pwd):/${GITHUB_REPOSITORY##*/} \
+                     -v _build_results:/_u/_build_results \
                      -e REPO_NAME=${GITHUB_REPOSITORY##*/} \
                      -e GET_FILES=True \
                      --privileged \
