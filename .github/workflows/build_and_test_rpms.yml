@@ -1,0 +1,15 @@
+name: Build and test RPMs
+on: [push]
+
+jobs:
+  build-rpms-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build RPMs
+        run: |
+          docker run -v $(pwd):/$REPO_NAME \
+                     -e REPO_NAME=${GITHUB_REPOSITORY##*/} \
+                     -e GET_FILES=True \
+                     --cap-add=SYS_ADMIN \
+                     opensciencegrid/osg-build \
+                     build-from-github
