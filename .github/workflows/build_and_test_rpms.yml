@@ -5,6 +5,10 @@ jobs:
   build-rpms-and-test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: Build RPMs
         run: |
           docker run -v $(pwd):/${GITHUB_REPOSITORY##*/} \
