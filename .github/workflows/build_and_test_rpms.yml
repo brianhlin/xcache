@@ -19,7 +19,7 @@ jobs:
       - name: Build RPMs
         run: |
           docker run -v $(pwd):/${GITHUB_REPOSITORY##*/} \
-                     -v %(pwd)/_build_results:/_u/_build_results \
+                     -v $(pwd)/_build_results:/_u/_build_results \
                      -e REPO_NAME=${GITHUB_REPOSITORY##*/} \
                      -e GET_FILES=True \
                      --privileged \
