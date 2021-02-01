@@ -9,11 +9,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Prepare Docker
-        run: |
-          echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null &&
-            sudo service docker restart
-
       - run: mkdir _build_dir
 
       - name: Build RPMs
